@@ -1,0 +1,318 @@
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الفروع الفائزة - الماجد للعود</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Cairo', sans-serif;
+        background: linear-gradient(to bottom right, #f0fdf4, #dcfce7);
+        margin: 0;
+        padding: 0;
+        color: #1f2937;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+    .header {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: linear-gradient(to right, #16a34a, #22c55e);
+        color: white;
+        position: relative;
+        animation: fadeInDown 1.2s ease-in-out;
+    }
+    .header img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid rgba(255,255,255,0.3);
+        background: white;
+        padding: 5px;
+        object-fit: contain;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .header h1 {
+        margin-top: 1rem;
+        font-size: 2.5rem;
+        font-weight: 900;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .header p {
+        font-size: 1.25rem;
+        margin-top: 0.5rem;
+        font-weight: 600;
+    }
+    .actions {
+        text-align: center;
+        margin: 1rem 0;
+    }
+    .actions button {
+        background: #16a34a;
+        color: white;
+        border: none;
+        margin: 0 5px;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+    .actions button:hover {
+        background: #15803d;
+    }
+    .search-box {
+        text-align: center;
+        margin: 1.5rem 0;
+    }
+    .search-box input {
+        padding: 0.75rem 1rem;
+        width: 80%;
+        max-width: 400px;
+        border: 2px solid #16a34a;
+        border-radius: 9999px;
+        font-size: 1rem;
+        outline: none;
+        transition: 0.3s;
+    }
+    .search-box input:focus {
+        border-color: #22c55e;
+        box-shadow: 0 0 10px rgba(34,197,94,0.4);
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+        background: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        animation: fadeInUp 1.5s ease-in-out;
+    }
+    th, td {
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+    th {
+        background: linear-gradient(to right, #fef9c3, #ffedd5);
+        color: #78350f;
+        font-weight: 700;
+    }
+    tbody tr:nth-child(even) {
+        background: #f9fafb;
+    }
+    tbody tr:hover {
+        background: #fefce8;
+    }
+    .pagination {
+        margin: 1.5rem auto;
+        text-align: center;
+    }
+    .pagination button {
+        background: #16a34a;
+        color: white;
+        border: none;
+        margin: 0 5px;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+    .pagination button:hover {
+        background: #15803d;
+    }
+    .pagination button.active {
+        background: #22c55e;
+        font-weight: 700;
+    }
+    @keyframes fadeInUp {
+        from {opacity: 0; transform: translateY(30px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInDown {
+        from {opacity: 0; transform: translateY(-30px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+</head>
+<body>
+<div class="header">
+    <div>
+        <img src="https://cdn.salla.sa/cdn-cgi/image/fit=scale-down,width=400,height=400,onerror=redirect,format=auto/OqeQlR/nXCR6C2cOFuSv1iTLqtEoGAdovWmzeLmjn14NvN5.png" alt="شعار شركة الماجد للعود">
+    </div>
+    <h1>شركة الماجد للعود</h1>
+    <p>قائمة الفروع الفائزة 🏆</p>
+</div>
+
+<div class="container">
+    <!-- Actions -->
+    <div class="actions">
+        <button onclick="downloadCSV()">⬇️ تحميل البيانات (CSV)</button>
+    </div>
+
+    <!-- Search bar -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 ابحث برقم الكود، اسم الفرع أو المجموعة">
+    </div>
+
+    <!-- Table -->
+    <table id="branchesTable">
+        <thead>
+            <tr>
+                <th>كود الفرع</th>
+                <th>إسم الفرع</th>
+                <th>المجموعة</th>
+                <th>النقاط</th>
+            </tr>
+        </thead>
+        <tbody>
+
+<tr><td>5000</td><td>قطر مول - قطر</td><td>A</td><td>1</td></tr>
+<tr><td>1169</td><td>الملقا - الرياض طريق الملك سلمان</td><td>A</td><td>1</td></tr>
+<tr><td>1006</td><td>غرناطة مول 1 - الرياض حي غرناطة</td><td>A</td><td>1</td></tr>
+<tr><td>5002</td><td>الريان - شارع آل شافي - قطر</td><td>A</td><td>1</td></tr>
+<tr><td>2001</td><td>ذا جيت مول 1 - الكويت</td><td>A</td><td>1</td></tr>
+<tr><td>1225</td><td>جدة - تاون سكوير</td><td>B</td><td>1</td></tr>
+<tr><td>2003</td><td>المباركية 1 - الكويت</td><td>A</td><td>1</td></tr>
+<tr><td>1021</td><td>التخصصي - الرياض شارع التخصصي</td><td>A</td><td>1</td></tr>
+<tr><td>1089</td><td>الملك فهد 1 - الرياض طريق الملك فهد</td><td>A</td><td>1</td></tr>
+<tr><td>2002</td><td>المنار مول - الكويت</td><td>A</td><td>1</td></tr>
+<tr><td>1321</td><td>الإحساء - العثيم مول 2</td><td>A</td><td>1</td></tr>
+<tr><td>1197</td><td>رويال مول - الرياض حي الرحمانية</td><td>B</td><td>1</td></tr>
+<tr><td>2008</td><td>الأفينيوز مول 1 - الكويت</td><td>A</td><td>1</td></tr>
+<tr><td>2005</td><td>العربيد - الكويت</td><td>A</td><td>1</td></tr>
+<tr><td>1166</td><td>بيشة - شارع أبها</td><td>A</td><td>1</td></tr>
+<tr><td>1109</td><td>المجمعة - شارع الملك فهد</td><td>A</td><td>1</td></tr>
+<tr><td>2028</td><td>مجمع أوتاد الجهراء - الكويت</td><td>A</td><td>1</td></tr>
+<tr><td>1050</td><td>الطائف - سوق العنقري</td><td>A</td><td>1</td></tr>
+<tr><td>1041</td><td>الخفجي - شارع الملك عبد العزيز</td><td>B</td><td>1</td></tr>
+<tr><td>1128</td><td>الرياض بارك 1 - الرياض الطريق الدائري الشمالي</td><td>A</td><td>1</td></tr>
+<tr><td>3033</td><td>الشارقة - متاجر الجرينة 1 - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>3019</td><td>أبو ظبي - جاليريا مول - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>3043</td><td>دبي - سيتي سنتر ديرة - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>1281</td><td>أبها - مجمع الضباب</td><td>B</td><td>1</td></tr>
+<tr><td>2011</td><td>الأفينيوز مول 2 - الكويت</td><td>B</td><td>1</td></tr>
+<tr><td>1275</td><td>خميس مشيط - البوليفارد 1</td><td>B</td><td>1</td></tr>
+<tr><td>3073</td><td>العين - شارع خليفة بن زايد - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>3054</td><td>كلباء - شارع عمرو بن العاص - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>1230</td><td>جدة - هيفاء مول</td><td>B</td><td>1</td></tr>
+<tr><td>1246</td><td>الدمام - العثيم مول</td><td>B</td><td>1</td></tr>
+<tr><td>2041</td><td>العاصمة مول - الكويت</td><td>B</td><td>1</td></tr>
+<tr><td>2030</td><td>الكوت مول 3 - الكويت</td><td>B</td><td>1</td></tr>
+<tr><td>1099</td><td>حفر الباطن - طريق الملك عبد العزيز</td><td>B</td><td>1</td></tr>
+<tr><td>3045</td><td>أبو ظبي - مدينتي مول - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>1198</td><td>العويس - الرياض أسواق العويس 3</td><td>B</td><td>1</td></tr>
+<tr><td>6003</td><td>مسقط - بوشر - مول عمان 1 - عمان</td><td>B</td><td>1</td></tr>
+<tr><td>3068</td><td>أبو ظبي - شارع محمد بن خليفة ( المرور ) - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>1248</td><td>الإحساء - أسواق القرية</td><td>B</td><td>1</td></tr>
+<tr><td>1272</td><td>خريص سكوير - الرياض حي المنار</td><td>B</td><td>1</td></tr>
+<tr><td>3015</td><td>دبي - سيتي ووك - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>1046</td><td>مكة - أبراج البيت 1 الحرم المكي</td><td>B</td><td>1</td></tr>
+<tr><td>1009</td><td>مارينا مول - الرياض حي الملك فهد</td><td>B</td><td>1</td></tr>
+<tr><td>1143</td><td>طبرجل - مجمع أسواق العثيم</td><td>B</td><td>1</td></tr>
+<tr><td>3009</td><td>أبو ظبي - الوحدة مول - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>3010</td><td>أبو ظبي - الفرسان سنترال مول - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>1126</td><td>طريف - طريق عمر بن الخطاب</td><td>B</td><td>1</td></tr>
+<tr><td>3077</td><td>أبو ظبي - بني ياس - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>2004</td><td>العنود - الكويت</td><td>B</td><td>1</td></tr>
+<tr><td>2027</td><td>المباركية 2 - الكويت</td><td>B</td><td>1</td></tr>
+<tr><td>1414</td><td>بريدة - شارع عمر بن سليم</td><td>B</td><td>1</td></tr>
+<tr><td>2034</td><td>مجمع دانة الجهراء - الكويت</td><td>B</td><td>1</td></tr>
+<tr><td>2025</td><td>الكوت مول 2 - الكويت</td><td>B</td><td>1</td></tr>
+<tr><td>3025</td><td>أبو ظبي - الظفرة مول - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>3011</td><td>أبو ظبي - الريم مول - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>3023</td><td>أبو ظبي - مارينا مول 1 - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>3069</td><td>الشارقة - ميجا مول - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>2018</td><td>سليل الجهراء مول - الكويت</td><td>B</td><td>1</td></tr>
+<tr><td>1039</td><td>الخبر - الراشد مول 1</td><td>B</td><td>1</td></tr>
+<tr><td>3046</td><td>أبو ظبي - مشرف مول - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>1411</td><td>جيزان - شارع الأمير ناصر بن عبد العزيز</td><td>B</td><td>1</td></tr>
+<tr><td>2019</td><td>البيرق مول - الكويت</td><td>B</td><td>1</td></tr>
+<tr><td>2029</td><td>مول 89 - الكويت</td><td>B</td><td>1</td></tr>
+<tr><td>3050</td><td>دبي - الورقاء سيتي مول - الإمارات</td><td>B</td><td>1</td></tr>
+<tr><td>2026</td><td>الفنار مول - الكويت</td><td>B</td><td>1</td></tr>
+
+
+
+            
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination"></div>
+</div>
+
+<script>
+    const rowsPerPage = 15;
+    let currentPage = 1;
+
+    const table = document.getElementById("branchesTable").getElementsByTagName("tbody")[0];
+    const pagination = document.getElementById("pagination");
+    const rows = table.getElementsByTagName("tr");
+
+    function displayTable(page) {
+        let start = (page - 1) * rowsPerPage;
+        let end = start + rowsPerPage;
+
+        for (let i = 0; i < rows.length; i++) {
+            rows[i].style.display = (i >= start && i < end) ? "" : "none";
+        }
+    }
+
+    function setupPagination() {
+        pagination.innerHTML = "";
+        let pageCount = Math.ceil(rows.length / rowsPerPage);
+
+        for (let i = 1; i <= pageCount; i++) {
+            let btn = document.createElement("button");
+            btn.innerText = i;
+            if (i === currentPage) btn.classList.add("active");
+            btn.addEventListener("click", function() {
+                currentPage = i;
+                displayTable(currentPage);
+                setupPagination();
+            });
+            pagination.appendChild(btn);
+        }
+    }
+
+    // Search function
+    document.getElementById("searchInput").addEventListener("keyup", function() {
+        let filter = this.value.toLowerCase();
+        let tr = table.getElementsByTagName("tr");
+
+        for (let i = 0; i < tr.length; i++) {
+            let txtValue = tr[i].textContent || tr[i].innerText;
+            tr[i].style.display = txtValue.toLowerCase().indexOf(filter) > -1 ? "" : "none";
+        }
+    });
+
+    // CSV download
+    function downloadCSV() {
+        let csv = [];
+        let rows = document.querySelectorAll("table tr");
+
+        for (let i = 0; i < rows.length; i++) {
+            let row = [], cols = rows[i].querySelectorAll("td, th");
+            for (let j = 0; j < cols.length; j++) row.push('"' + cols[j].innerText + '"');
+            csv.push(row.join(","));
+        }
+
+        let csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
+        let downloadLink = document.createElement("a");
+        downloadLink.download = "branches.csv";
+        downloadLink.href = window.URL.createObjectURL(csvFile);
+        downloadLink.click();
+    }
+
+    // Initialize
+    displayTable(currentPage);
+    setupPagination();
+</script>
+</body>
+</html>
